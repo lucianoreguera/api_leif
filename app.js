@@ -4,10 +4,11 @@ const cors = require('cors')
 const dbConnect = require('./config/mongo')
 
 const app = express()
+const port = process.env.PORT || 3000
 
 app.use(cors())
+app.use('/api', require('./routes'))
 
-const port = process.env.PORT || 3000
 
 app.listen(port, () => {
     console.log(`App corriendo en http://localhost:${port}`)
